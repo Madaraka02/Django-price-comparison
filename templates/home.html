@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css"
+rel="stylesheet"
+/>
+<style>
+    body{
+        overflow-x: hidden;
+        background-color: #eee;
+    }
+    p{
+        font-size: small;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top p-3">
+        <!-- Container wrapper -->
+        <div class="container">
+          <!-- Navbar brand -->
+          <a class="navbar-brand me-2" href="https://mdbgo.com/">
+            <img
+              src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+              height="16"
+              alt="MDB Logo"
+              loading="lazy"
+              style="margin-top: -1px;"
+            />
+          </a>
+      
+          <!-- Toggle button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarButtonsExample"
+            aria-controls="navbarButtonsExample"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+      
+          <!-- Collapsible wrapper -->
+          <div class="collapse navbar-collapse" id="navbarButtonsExample">
+            <!-- Left links -->
+            <div class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <form action="/" method="post" class=" input-group w-auto">
+                    {% csrf_token %}
+                    <input
+                      type="search"
+                      class="form-control rounded"
+                      placeholder="Search"
+                      aria-label="Search"
+                      aria-describedby="search-addon"
+                      name="name"
+                    />
+                    <span class="input-group-text border-0" id="search-addon">
+                      <button class="btn" type="submit">
+                        <i class="fas fa-search"></i>
+                      </button>
+                      
+                    </span>
+                  </form>
+            </div>
+            <!-- Left links -->
+      
+            <div class="d-flex align-items-center">
+              <button type="button" class="btn btn-link px-3 me-2">
+                Sign in
+              </button>
+              <button type="button" class="btn btn-link me-3">
+                Sign up
+              </button>
+              <button type="button" class="btn btn-link me-3">
+                Sign out
+              </button>
+            </div>
+          </div>
+          <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+      </nav>
+      <div class="conatiner mt-5 mb-5">
+        <div class="row">
+
+
+    <section style="background-color: #eee; height: 100vh;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    desc
+                </div>
+                <div class="col-md-5">
+                    avatar
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section style="background-color: #eee;">
+        <div class="text-center container py-5">
+      
+          <div class="row">
+            {% for n,p,i,l in jambo %}
+            <div class="col-lg-3 col-md-12 mb-4 ">
+              <div class="card h-100">
+                <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
+                  data-mdb-ripple-color="light">
+                  <img src="{{i}}"
+                    class="w-100 h-100" />
+                  <a href="https://www.jamboshop.com/{{l}}">
+                    <div class="mask">
+                      <div class="d-flex justify-content-start align-items-end h-100">
+                        <h5><span class="badge bg-primary ms-2">Jambo shop</span></h5>
+                      </div>
+                    </div>
+                    <div class="hover-overlay">
+                      <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </div>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <a href="https://www.jamboshop.com/{{l}}" class="text-reset">
+                    <p class="card-title mb-3">{{n}}</p>
+                  </a>
+                  <p class="mb-3">{{p}}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+      
+
+
+        </div>
+      </section>
+
+
+      
+      <section style="background-color: #eee;">
+        <div class="text-center container py-5">
+      
+          <div class="row">
+            {% for n,p,i in jumia %}
+            <div class="col-lg-3 col-md-12 mb-4">
+              <div class="card h-100">
+                <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
+                  data-mdb-ripple-color="light">
+                  <img src="{{i}}"
+                    class="w-100 h-100" />
+                  <a href="">
+                    <div class="mask">
+                      <div class="d-flex justify-content-start align-items-end h-100">
+                        <h5><span class="badge bg-warning ms-2">Jumia</span></h5>
+                      </div>
+                    </div>
+                    <div class="hover-overlay">
+                      <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </div>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <a href="" class="text-reset">
+                    <p class="card-title mb-3">{{n}}</p>
+                  </a>
+                  <p class="mb-3">{{p}}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+      
+
+
+        </div>
+      </section>
+
+    <section style="background-color: #eee;">
+        <div class="text-center container py-5">
+      
+          <div class="row">
+            {% for n,p,i,l in jiji %}
+            <div class="col-lg-3 col-md-12 mb-4">
+              <div class="card h-100">
+                <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
+                  data-mdb-ripple-color="light">
+                  <img src="{{i}}"
+                    class="w-100" />
+                  <a href="{{l}}">
+                    <div class="mask">
+                      <div class="d-flex justify-content-start align-items-end h-100">
+                        <h5><span class="badge bg-success ms-2">Jiji kenya</span></h5>
+                      </div>
+                    </div>
+                    <div class="hover-overlay">
+                      <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </div>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <a href="{{l}}" class="text-reset">
+                    <p class="card-title mb-3">{{n}}</p>
+                  </a>
+                  <p class="mb-3">{{p}}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+      
+
+
+        </div>
+      </section>
+
+</div>
+</div>
+    
+        <!-- MDB -->
+<script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"
+></script>
+</body>
+</html>
